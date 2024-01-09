@@ -27,13 +27,11 @@ func SHA256(data string) string {
 }
 
 func SHA384(data string) string {
-	h := sha512.New384()
-	h.Write([]byte(data))
-	return hex.EncodeToString(h.Sum384(nil))
+	sig := sha512.Sum384([]byte(data))
+	return hex.EncodeToString(sig[:])
 }
 
 func SHA512(data string) string {
-	h := sha512.New()
-	h.Write([]byte(data))
-	return hex.EncodeToString(h.Sum512(nil))
+	sig := sha512.Sum512([]byte(data))
+	return hex.EncodeToString(sig[:])
 }
